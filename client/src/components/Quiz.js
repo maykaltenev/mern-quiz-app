@@ -3,21 +3,23 @@ import Questions from './Questions'
 
 /** redux store import */
 
-import { useSelector } from 'react-redux'
-export default function Quiz() {
-    const state = useSelector(state => state)
+import { useSelector, useDispatch } from 'react-redux'
+import { MoveNextQuestion, MovePrevQuestion } from '../hooks/FetchQuestions';
 
+export default function Quiz() {
+    const state = useSelector(state => state.questions.trace)
+    const dispatch = useDispatch();
     useEffect(() => {
         console.log(state)
     })
     /* On next Handler*/
     function onNext() {
-        console.log("On next")
+        /** update the trace value by one using MoveNextAction */
+        dispatch(MoveNextQuestion())
     }
-
     /* On Prev Handler*/
     function onPrev() {
-        console.log("On prev")
+        dispatch(MovePrevQuestion())
     }
     return (
         <div className='container'>

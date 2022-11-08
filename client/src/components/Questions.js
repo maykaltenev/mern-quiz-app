@@ -9,9 +9,8 @@ export default function Questions() {
 
     const questions = useSelector(state => state.questions.queue[state.questions.trace])
     useEffect(() => {
-        // console.log(question)
+        console.log(questions)
     })
-
     function onSelect() {
         // console.log('radio button change')
     }
