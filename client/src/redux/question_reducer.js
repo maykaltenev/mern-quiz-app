@@ -1,22 +1,23 @@
-import { createSlice } from "œreduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
-/** crete reducer */
+/** create reducer */
 export const questionReducer = createSlice({
     name: 'questions',
-    initialSate: {
+    initialState: {
         queue: [],
-        answer: [],
+        answers: [],
         trace: 0
     },
     reducers: {
         startExamAction: (state, action) => {
             return {
-                state,
+                ...state,
                 queue: action.payload
             }
         }
     }
-});
-export const { startExamAction } = questionReducer.actions
+})
+
+export const { startExamAction } = questionReducer.actions;
 
 export default questionReducer.reducer;
