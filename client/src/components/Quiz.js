@@ -23,8 +23,11 @@ export default function Quiz() {
     function onNext() {
         /** update the trace value by one using MoveNextAction */
         if (trace < queue.length) {
+            console.log("On Next click");
             dispatch(MoveNextQuestion())
-            dispatch(PushAnswer(check))
+            if (result.length <= trace) {
+                dispatch(PushAnswer(check))
+            }
         }
     }
     /* On Prev Handler*/

@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 /** Custom Hook */
 import { useFetchQuestion } from '../hooks/FetchQuestions'
-export default function Questions({ onChecked }) {
+import { updateResult } from '../hooks/setResult';
 
+
+export default function Questions({ onChecked }) {
+    const [checked, setChecked] = useState(undefined);
     const [{ isLoading, apiData, serverError }] = useFetchQuestion();
+    const { trace } = useSelector(state => state.questions);
 
     const questions = useSelector(state => state.questions.queue[state.questions.trace]);
+    const dispatch = useDispatch();
     useEffect(() => {
-        // console.log(questions)
-    })
+        dispatch(updateResult({ trace, checked }))
+    }, [checked])
     function onSelect(i) {
         onChecked(i)
+        setChecked(i)
     }
 
     if (isLoading) return <h3 className='text-light'>isLoading</h3>;
