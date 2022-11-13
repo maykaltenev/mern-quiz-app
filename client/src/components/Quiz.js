@@ -29,6 +29,8 @@ export default function Quiz() {
                 dispatch(PushAnswer(check))
             }
         }
+        /** reset the value of the checked variable */
+        setChecked(undefined)
     }
     /* On Prev Handler*/
     function onPrev() {
