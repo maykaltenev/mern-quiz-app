@@ -9,4 +9,4 @@ const questionModel = new Schema({
 
 })
 
-export const questions = mongoose.model('Question', questionModel);
+export default questions = mongoose.model('Question', questionModel);

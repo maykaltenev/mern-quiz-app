@@ -1,5 +1,14 @@
+import Questions from "../models/questionsSchema.js";
+import Result from "../models/ResultSchema.js";
+
 /** get all questions */
 export async function getQuestions(req, res) {
+    try {
+        const q = await Questions.find();
+        res.json(q);
+    } catch (error) {
+        res.json({ error });
+    }
     res.json("questions api get req")
 }
 /** insert all questions */
