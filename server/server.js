@@ -30,9 +30,11 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${
     .then(() => {
         console.log("Database connected! 🟢");
     })
-
     .catch((error) => {
         console.log(error.message);
         console.log("❌");
     });
 
+app.listen(port, () =>
+    console.log(`The server is listening on port ${port} ... 🐒`)
+);
