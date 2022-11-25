@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
 import data, { answers } from "../database/data";
+import { getServerData } from "../helper/helper";
 
 /** redux actions */
 import * as Action from '../redux/question_reducer'
@@ -17,6 +18,7 @@ export const useFetchQuestion = () => {
         (async () => {
             try {
                 let question = await data;
+                await getServerData('http://localhost:5001/api/reuslt')
 
                 if (question.length > 0) {
                     setGetData(prev => ({ ...prev, isLoading: false }));
