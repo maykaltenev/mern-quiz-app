@@ -4,7 +4,7 @@
 
 ---
 
-![project](./client/assets/sreen-record.gif)
+![project](./client/src/assets/sreen-record.gif)
 
 ### About Project
 
